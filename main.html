@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eunice</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Jersey 15', sans-serif; /* Use the Jersey 15 font */
+            font-size: 17px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #wisUnice {
+            font-size: 24px; 
+            margin-bottom: 10px;
+            color: #7D000B;
+        }
+
+        #timeElapsed {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="wisUnice">wis ♡ unice</p>
+    <p id="timeElapsed"></p>
+
+    <script>
+        function updateTime() {
+            const targetDate = new Date('2024-04-19T00:00:00');
+            const currentDate = new Date();
+            const timeDifference = currentDate - targetDate;
+
+            const seconds = Math.floor(timeDifference / 1000) % 60;
+            const minutes = Math.floor(timeDifference / (1000 * 60)) % 60;
+            const hours = Math.floor(timeDifference / (1000 * 60 * 60)) % 24;
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+            document.getElementById('timeElapsed').textContent = `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+        }
+
+        updateTime();
+
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
